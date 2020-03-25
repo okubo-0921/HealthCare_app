@@ -1,0 +1,4 @@
+.main_view
+  =link_to "サイドバー表示/非表示", root_path, class: "btn", data: {action: "toggle", side: "left"}
+  =column_chart Chart.pluck(:name, :weight), min: 40, max: 100
+  =render "/charts/index"

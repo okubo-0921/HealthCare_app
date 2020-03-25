@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @chart.name
+%p
+  %b Weight:
+  = @chart.weight
+%p
+  %b Length:
+  = @chart.length
+%p
+  %b BMI:
+  = @chart.BMI
+%p
+  %b data:
+  = @chart.date
+
+= link_to '編集', edit_chart_path(@chart)
+\|
+= link_to '戻る', root_path

@@ -1,0 +1,25 @@
+= form_for @chart do |f|
+  - if @chart.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@chart.errors.count, "error")} prohibited this chart from being saved:"
+      %ul
+        - @chart.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :weight
+    = f.number_field :weight
+  .field
+    = f.label :length
+    = f.number_field :length
+  .field
+    = f.label :BMI
+    = f.number_field :BMI
+  .field
+    = f.label :date
+    = f.date_select :date
+  .actions
+    = f.submit '保存'

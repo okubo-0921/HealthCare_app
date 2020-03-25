@@ -1,0 +1,110 @@
+a {
+  text-decoration: none;
+}
+
+.wrapper {
+  display: flex;
+  background-color: white;
+  .side_bar {
+    z-index: 1;
+    position: relative;
+    background-color: royalblue;
+    height: 100vh;
+    width: 30%;
+    .app-name {
+      height: 50px;
+      width: 100%;
+      background-color: skyblue;
+    }
+    .fa-door-open {
+      position: absolute;
+      color: black;
+      font-size: 16px;
+      width: 20px;
+      height: 20px;
+      top: 30px;
+      right: 10px;
+    }
+    .fa-cog {
+      position: absolute;
+      color: black;
+      font-size: 16px;
+      width: 20px;
+      height: 20px;
+      top: 30px;
+      right: 40px;
+    }
+
+    .app-area {
+      overflow: scroll;
+      .app1 {
+        flex-wrap: wrap;
+        width: 100%;
+        display: inline-block;
+        margin: 15px;
+        text-decoration: none;
+        font-size: 20px;
+      }
+      .app2 {
+        flex-wrap: wrap;
+        width: 100%;
+        display: inline-block;
+        margin: 15px;
+        text-decoration: none;
+        font-size: 20px;
+      }
+      .app3 {
+        flex-wrap: wrap;
+        width: 100%;
+        display: inline-block;
+        margin: 15px;
+        text-decoration: none;
+        font-size: 20px;
+      }
+    }
+
+    .input-area {
+      position: absolute;
+      bottom: 0;
+      background-color: paleturquoise;
+      width: 100%;
+      color: gray;
+      input {
+        display: inline-block;
+      }
+      &__text1 {
+        margin-top: 10px;
+        width: 100%;
+        color: black;
+      }
+      &__text2 {
+        width: 100%;
+        color: black;
+      }
+      &__text3 {
+        width: 100%;
+        color: black;
+      }
+
+      .save-btn {
+        height: 50px;
+        padding: 10px 10px;
+        line-height: 50px;
+      }
+    }
+  }
+
+  .main_view {
+    position: absolute;
+    overflow: scroll;
+    float: right;
+    margin-left: 30px;
+    height: 100vh;
+    width: 90%;
+
+    a {
+      float: right;
+      font-size: 12px;
+    }
+  }
+}
