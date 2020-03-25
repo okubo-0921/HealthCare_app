@@ -1,0 +1,25 @@
+%h3 　棒グラフ
+
+%table
+  %thead
+    %tr
+      %th 　Name
+      %th 　Weight
+      %th 　Length
+      %th 　BMI
+      %th 　Date
+
+  %tbody
+    - @charts.each do |chart|
+      %tr
+        %td= chart.name
+        %td= chart.weight
+        %td= chart.length
+        %td= chart.BMI
+        %td= chart.date.strftime("　%m/%d")
+        %td= link_to '　詳細', chart
+        %td= link_to '　編集', edit_chart_path(chart)
+        %td= link_to '　削除', chart, method: :delete, data: { confirm: 'Are you sure?' }
+%br
+
+= link_to 'テーブル追加', new_chart_path

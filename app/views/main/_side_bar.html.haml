@@ -1,0 +1,25 @@
+.side_bar.sidebar.left
+  .app-name
+    %a AppTitle
+    = link_to destroy_user_session_path, method: :delete, class: "icon--door" do
+      = icon('fas', 'door-open')
+      %spcn<>
+    -# = link_to "#", class: "icon--cog" do
+    -#   = icon('fas', 'cog')
+    -#   %spcn<>
+  .app-area
+    = link_to "チャート", "#", class: "app1"
+    = link_to "c", "#", class: "app2"
+    = link_to "d", "#", class: "app3"
+
+  .input-area
+    %a 入力画面
+    %br
+    = text_field "text1", class: "input-area__text1"
+    date
+    = text_field "text2", class: "input-area__text2"
+    weight
+    = text_field "text3", class: "input-area__text3"
+    length
+    %br
+    = link_to "保存", "#", class: "save-btn"
