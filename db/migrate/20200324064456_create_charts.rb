@@ -5,9 +5,11 @@ class CreateCharts < ActiveRecord::Migration[5.2]
       t.integer :weight
       t.integer :length
       t.integer :BMI
-      t.datetime :date
+      t.date :date
+      t.integer :Proper
 
       t.timestamps
     end
+    add_index :charts, :date,                 unique: true
   end
 end

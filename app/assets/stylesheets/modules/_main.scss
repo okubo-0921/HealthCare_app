@@ -4,7 +4,7 @@ a {
 
 .wrapper {
   display: flex;
-  background-color: white;
+  background-color: whitesmoke;
   .side_bar {
     z-index: 1;
     position: relative;
@@ -14,7 +14,7 @@ a {
     .app-name {
       height: 50px;
       width: 100%;
-      background-color: skyblue;
+      background: radial-gradient(skyblue, #fff);
     }
     .fa-door-open {
       position: absolute;
@@ -36,6 +36,7 @@ a {
     }
 
     .app-area {
+      height: 70vh;
       overflow: scroll;
       .app1 {
         flex-wrap: wrap;
@@ -64,10 +65,12 @@ a {
     }
 
     .input-area {
+      overflow: scroll;
       position: absolute;
       bottom: 0;
-      background-color: paleturquoise;
+      background: radial-gradient(#fff, paleturquoise);
       width: 100%;
+      height: 30vh;
       color: gray;
       input {
         display: inline-block;

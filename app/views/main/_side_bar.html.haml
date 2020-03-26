@@ -10,16 +10,22 @@
   .app-area
     = link_to "チャート", "#", class: "app1"
     = link_to "c", "#", class: "app2"
-    = link_to "d", "#", class: "app3"
+    -# = link_to "d", "#", class: "app3"
 
   .input-area
     %a 入力画面
-    %br
-    = text_field "text1", class: "input-area__text1"
-    date
-    = text_field "text2", class: "input-area__text2"
-    weight
-    = text_field "text3", class: "input-area__text3"
-    length
-    %br
-    = link_to "保存", "#", class: "save-btn"
+    = form_for @chart do |f|
+      .field
+        = f.label :name
+        = f.number_field :name
+      .field
+        = f.label :weight
+        = f.number_field :weight
+      .field
+        = f.label :length
+        = f.number_field :length
+      .field
+        = f.label :date
+        = f.date_select :date
+      .actions
+        = f.submit '保存'
