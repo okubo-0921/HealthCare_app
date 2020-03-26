@@ -19,7 +19,22 @@
     name: record[1],
     weight: record[2],
     length: record[3],
-    # BMI: (record[2] / ((record[3]/100)^2)),
-    # Proper: (((record[3]/100)^2) * 22)
+    BMI: (record[2].to_f / ((record[3].to_f/100)**2)),
+    Proper: (((record[3].to_f/100)**2) * 22),
+  )
+end
+
+[
+  ['a', 'aaaa', 'test', 20200301, 20200302],
+  ['b', 'bbbb', 'test', 20200303, 20200305],
+  ['c', 'cccc', 'AAA', 20200303, 20200305],
+  ['d', 'dddd', 'AAA', 20200303, 20200305],
+].each do |record|
+  Calendar.create!(
+    title: record[0],
+    body: record[1],
+    name: record[2],
+    start_date: record[3],
+    end_date: record[4],
   )
 end

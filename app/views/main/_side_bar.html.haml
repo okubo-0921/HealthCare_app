@@ -8,8 +8,8 @@
     -#   = icon('fas', 'cog')
     -#   %spcn<>
   .app-area
-    = link_to "チャート", "#", class: "app1"
-    = link_to "c", "#", class: "app2"
+    = link_to "チャート", root_path, class: "app1"
+    = link_to "カレンダー", root_path, class: "app2"
     -# = link_to "d", "#", class: "app3"
 
   .input-area
@@ -17,7 +17,7 @@
     = form_for @chart do |f|
       .field
         = f.label :name
-        = f.number_field :name
+        = f.text_field :name
       .field
         = f.label :weight
         = f.number_field :weight

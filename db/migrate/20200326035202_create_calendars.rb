@@ -1,0 +1,13 @@
+class CreateCalendars < ActiveRecord::Migration[5.2]
+  def change
+    create_table :calendars do |t|
+      t.string :title
+      t.string :body
+      t.date :start_date
+      t.date :end_date
+      t.string :name
+      
+      t.timestamps
+    end
+  end
+end
