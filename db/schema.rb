@@ -17,7 +17,8 @@ ActiveRecord::Schema.define(version: 2020_03_24_064456) do
     t.integer "weight"
     t.integer "length"
     t.integer "BMI"
-    t.datetime "date"
+    t.date "date"
+    t.integer "Proper"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

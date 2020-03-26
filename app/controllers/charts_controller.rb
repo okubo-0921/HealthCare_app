@@ -25,10 +25,13 @@ class ChartsController < ApplicationController
   # POST /charts.json
   def create
     @chart = Chart.new(chart_params)
+    # length = @chart.length/100
+    # @chart.Proper = ((length)^2) * 22
+    # @chart.BMI = @chart.weight / ((length)^2)
 
     respond_to do |format|
       if @chart.save
-        format.html { redirect_to @chart, notice: 'Chart was successfully created.' }
+        format.html { redirect_to @chart, notice: '編集しました.' }
         format.json { render :show, status: :created, location: @chart }
       else
         format.html { render :new }
@@ -42,7 +45,7 @@ class ChartsController < ApplicationController
   def update
     respond_to do |format|
       if @chart.update(chart_params)
-        format.html { redirect_to @chart, notice: 'Chart was successfully updated.' }
+        format.html { redirect_to @chart, notice: '更新しました.' }
         format.json { render :show, status: :ok, location: @chart }
       else
         format.html { render :edit }
@@ -56,7 +59,7 @@ class ChartsController < ApplicationController
   def destroy
     @chart.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Chart was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: '削除しました.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +72,6 @@ class ChartsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def chart_params
-      params.require(:chart).permit(:name, :weight, :length, :BMI, :date)
+      params.require(:chart).permit(:name, :weight, :length, :BMI, :Proper, :date)
     end
 end

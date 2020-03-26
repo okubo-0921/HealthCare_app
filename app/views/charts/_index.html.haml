@@ -1,25 +1,26 @@
-%h3 　棒グラフ
-
+%br
+%h3=current_user.name
 %table
   %thead
     %tr
-      %th 　Name
       %th 　Weight
       %th 　Length
-      %th 　BMI
+      -# %th 　BMI
       %th 　Date
+      -# %th 　Proper
 
   %tbody
     - @charts.each do |chart|
-      %tr
-        %td= chart.name
-        %td= chart.weight
-        %td= chart.length
-        %td= chart.BMI
-        %td= chart.date.strftime("　%m/%d")
-        %td= link_to '　詳細', chart
-        %td= link_to '　編集', edit_chart_path(chart)
-        %td= link_to '　削除', chart, method: :delete, data: { confirm: 'Are you sure?' }
+      - if(current_user.name == chart.name)
+        %tr
+          %td= chart.weight
+          %td= chart.length
+          -# %td= chart.BMI
+          %td= chart.date.strftime("　%y/%m/%d")
+          -# %td= chart.Proper
+          %td= link_to '　　詳細', chart
+          %td= link_to '　編集', edit_chart_path(chart)
+          %td= link_to '　削除', chart, method: :delete, data: { confirm: 'Are you sure?' }
 %br
 
 = link_to 'テーブル追加', new_chart_path

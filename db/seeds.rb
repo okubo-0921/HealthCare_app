@@ -7,20 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 [
-  [2020, 'a', 50, 160, nil],
-  [2020, 'b', 55, 165, nil],
-  [2020, 'c', 60, 170, nil],
-  [2020, 'd', 65, 175, nil],
-  [2020, 'e', 70, 180, nil],
-  [2020, 'f', 75, 185, nil],
-  [2020, 'g', nil, 48, nil],
-  [2020, 'h', nil, 48, nil],
+  [20200101, 'test', 50, 160],
+  [20200102, 'test', 55, 165],
+  [20200103, 'test', 60, 162],
+  [20200104, 'AAA', 70, 155],
+  [20200105, 'AAA', 65, 180],
+  [20200106, 'AAA', 75, 175],
 ].each do |record|
-  Chart.create(
-    date: Time.zone.local(record[0]),
+  Chart.create!(
+    date: record[0],
     name: record[1],
     weight: record[2],
     length: record[3],
-    BMI: record[4]
+    # BMI: (record[2] / ((record[3]/100)^2)),
+    # Proper: (((record[3]/100)^2) * 22)
   )
 end

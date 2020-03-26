@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :charts
   validates :name, presence: true, uniqueness: true
   # validates :members_number, presence: true, uniqueness: true
 end
