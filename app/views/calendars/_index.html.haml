@@ -1,0 +1,27 @@
+%h2 Calendar
+%h3=current_user.name
+= link_to '新しい予定を追記', new_calendar_path
+%br
+
+%table
+  %thead
+    %tr
+      %th 　予定
+      %th 　内容
+      %th 　開始日
+      %th 　終了日
+
+  %tbody
+    - @calendars.each do |calendar|
+      - if(current_user.name == calendar.name)
+        %tr
+          %td= calendar.title
+          %td= calendar.body
+          %td= calendar.start_date.strftime("　%y/%m/%d")
+          %td= calendar.end_date.strftime("　%y/%m/%d")
+          %td= link_to '　詳細', calendar
+          %td= link_to '　編集', edit_calendar_path(calendar)
+          %td= link_to '　削除', calendar, method: :delete, data: { confirm: 'Are you sure?' }
+%br
+= month_calendar calendars: @calendars do |date, calendars|
+  = date.strftime("%d")

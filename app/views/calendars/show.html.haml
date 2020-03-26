@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @calendar.name
+%p
+  %b Title:
+  = @calendar.title
+%p
+  %b Body:
+  = @calendar.body
+%p
+  %b Start date:
+  = @calendar.start_date
+%p
+  %b End date:
+  = @calendar.end_date
+
+= link_to '編集', edit_calendar_path(@calendar)
+\|
+= link_to '戻る', root_path

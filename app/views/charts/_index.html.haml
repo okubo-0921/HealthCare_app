@@ -1,13 +1,16 @@
-%br
+%h2 Chart
 %h3=current_user.name
+
+=column_chart Chart.where(name: current_user.name).pluck(:date, :weight), discrete: true, curve: false, min: 40, max: 100, xtitle: "date", ytitle: "weight"
+
 %table
   %thead
     %tr
       %th 　Weight
       %th 　Length
-      -# %th 　BMI
+      %th 　BMI
+      %th 　Proper
       %th 　Date
-      -# %th 　Proper
 
   %tbody
     - @charts.each do |chart|
@@ -15,12 +18,12 @@
         %tr
           %td= chart.weight
           %td= chart.length
-          -# %td= chart.BMI
+          %td= chart.BMI
+          %td= chart.Proper
           %td= chart.date.strftime("　%y/%m/%d")
-          -# %td= chart.Proper
           %td= link_to '　　詳細', chart
           %td= link_to '　編集', edit_chart_path(chart)
           %td= link_to '　削除', chart, method: :delete, data: { confirm: 'Are you sure?' }
 %br
 
-= link_to 'テーブル追加', new_chart_path
+-# = link_to 'テーブル追加', new_chart_path

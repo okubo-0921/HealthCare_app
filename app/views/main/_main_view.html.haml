@@ -1,12 +1,12 @@
 .main_view
-  =link_to "サイドバー表示/非表示", root_path, class: "btn", data: {action: "toggle", side: "left"}
   %br
-  -# =link_to "棒グラフ", root_path, class: "btn-column"
-  -# %br
-  -# =link_to "折れ線グラフ", root_path, class: "btn-line"
-  -# %br
+  =button_to "サイドバー表示/非表示", root_path, class: "btn", data: {action: "toggle", side: "left"}
+  %br
   -# -if (btnstate == column)
     -# =column_chart Chart.where(name: current_user.name).pluck(:date, :weight), discrete: true, curve: false, min: 40, max: 100, xtitle: "date", ytitle: "weight"
   -# -if (btnstate == line)
-  =line_chart Chart.where(name: current_user.name).pluck(:date, :weight), discrete: true, curve: false, min: 40, max: 100, xtitle: "date", ytitle: "weight"
+
+  
+  -# =line_chart Chart.where(name: current_user.name).pluck(:date, :weight), discrete: true, curve: false, min: 40, max: 100, xtitle: "date", ytitle: "weight"
   =render "/charts/index"
+  -# =render "/calendars/index"

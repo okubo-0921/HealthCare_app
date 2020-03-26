@@ -66,5 +66,10 @@ gem 'pry-byebug'
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'font-awesome-sass'
+gem 'erb2haml'
 
 gem "chartkick"
+gem "simple_calendar"
+gem 'momentjs-rails'
+
+gem 'rails-i18n', '~> 5.1' 
