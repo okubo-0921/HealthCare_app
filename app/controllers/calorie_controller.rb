@@ -1,0 +1,2 @@
+class CalorieController < ApplicationController
+end

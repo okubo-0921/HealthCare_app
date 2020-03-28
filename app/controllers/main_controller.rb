@@ -6,7 +6,15 @@ class MainController < ApplicationController
     @calendars = Calendar.all
   end
 
-  # def update
-  #   render template: "/charts/index"
-  # end
+  def create
+  end
+
+  def show
+    if ()
+
+    end
+  end
+
+  def update
+  end
 end

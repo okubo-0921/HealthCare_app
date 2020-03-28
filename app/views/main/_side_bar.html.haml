@@ -4,13 +4,15 @@
     = link_to destroy_user_session_path, method: :delete, class: "icon--door" do
       = icon('fas', 'door-open')
       %spcn<>
+    =button_to "サイドバー非表示", root_path, class: "btn", data: {action: "toggle", side: "left"}
+
     -# = link_to "#", class: "icon--cog" do
     -#   = icon('fas', 'cog')
     -#   %spcn<>
   .app-area
-    = link_to "チャート", root_path, class: "app1"
-    = link_to "カレンダー", root_path, class: "app2"
-    -# = link_to "d", "#", class: "app3"
+    = link_to "チャート", charts_path, class: "app1"
+    = link_to "カレンダー", calendars_path, class: "app2"
+    = link_to "カロリー計算", calories_path, class: "app3"
 
   .input-area
     %a 入力画面

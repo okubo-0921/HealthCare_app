@@ -1,7 +1,6 @@
 #account-page.account-page
   .account-page__inner.clearfix
     .account-page__inner--left.account-page__header
-      -# %h2 ログイン
       %h5 登録済みユーザーでログイン
     .account-page__inner--right.user-form
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
