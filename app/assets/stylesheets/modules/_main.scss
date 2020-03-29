@@ -8,7 +8,7 @@ a {
   .side_bar {
     z-index: 1;
     position: relative;
-    background-color: royalblue;
+    background-color: rgb(250, 219, 239);
     height: 100vh;
     width: 30%;
     .app-name {
@@ -108,6 +108,10 @@ a {
     input {
       // float: right;
       font-size: 12px;
+    }
+    .db {
+      // color: whitesmoke;
+      display: hidden;
     }
   }
 }

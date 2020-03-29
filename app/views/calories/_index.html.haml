@@ -1,21 +1,72 @@
-.field
+.main_view
+  %br
+  =button_to "サイドバー表示", root_path, class: "btn", data: {action: "toggle", side: "left"}
+  %br
+
   %a Name：
-  =current_user.name
-.field
+  = current_user.name
+  %br
   %a age：
-  =current_user.age
-.field
-  %a email：
-  = current_user.email
-.field
-  %a BMI：
+  = current_user.age
+  %br 
 
-.field
-  %a metabolism：
-%br
+  -# = @foods
+  -# %a 1
+  -# =params
 
-.input_area
-  %textarea #(name="text" cols="30" rows="10")
-  %textarea #(name="text" cols="30" rows="10")
-%submit 計算
-%br
+  -# = @objs.find_by(obj: 'コーヒー')
+  -# = search_obj
+  -# %a weight：
+  -# = @metabolism
+  -# %br
+  -# %a 基礎代謝：
+  -# = @metabolism
+  -# %br
+  %br
+  %form#form1{:action => "#"}
+    %a 食べた物を入力:
+    %br
+    -# = form_for @obj, url: "calories/update" do |f|
+    -#   .field
+    -#     = f.text_field :obj
+    %input#food{:type => "text", :name => "food", :value => ""}
+    %br
+    %a 数量(g):
+    %br
+    %input#gram{:type => "text", :name => "gram", :value => ""}
+    %br
+    %input{:onclick => "func1()", :type => "button", :value => "送信"}
+      -# .actions
+      -#   = f.submit '計算'
+    -# %input#food{:type => "text", :name => "food", :value => ""}
+    -# %br
+    -# %br
+    -# %a 数量(g):
+    -# %br
+    -# %input#gram{:type => "text", :name => "gram", :value => ""}
+    -# %br
+  #test
+  %br
+  %a 入力済みの食べ物:
+  %form#form2{:action => "#"}
+    %textarea#output1{:cols => "60", :name => "eat_all", :readonly => "readonly", :rows => "10", :style => "overflow:auto;"}
+    %br
+    %a 合計摂取カロリー：
+    %text#output2{:cols => "20", :name => "total", :readonly => "readonly", :rows => "1"}
+    %text#test{:cols => "20", :name => "test", :readonly => "readonly", :rows => "1"}
+    -# - @objs.each do |a|
+    -#   - if (a.obj == 'コーヒー')
+    -#     = kcal = a.calorie * 1
+    -# =@kcal
+    %a kcal
+    %br
+    %br
+    -# %input{:onclick => "func3()", :type => "button", :value => "算出"}
+    %input{:onclick => "func2()", :type => "button", :value => "リセット"}
+  
+  %br
+  %br
+
+  %text#result{:class => "db", :readonly => "readonly"}
+    =@foods
+  %br

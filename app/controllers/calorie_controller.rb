@@ -1,2 +1,0 @@
-class CalorieController < ApplicationController
-end

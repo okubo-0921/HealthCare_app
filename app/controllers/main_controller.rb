@@ -6,15 +6,4 @@ class MainController < ApplicationController
     @calendars = Calendar.all
   end
 
-  def create
-  end
-
-  def show
-    if ()
-
-    end
-  end
-
-  def update
-  end
 end

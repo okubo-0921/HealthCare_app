@@ -12,13 +12,13 @@
 %p
   %b BMI:
   = @chart.BMI
-%p
-  %b Metabolism:
-  = @chart.metabolism
+-# %p
+-#   %b Metabolism:
+-#   = @chart.metabolism
 %p
   %b data:
   = @chart.date
 
 = link_to '編集', edit_chart_path(@chart)
 \|
-= link_to '戻る', root_path
+= link_to '戻る', charts_path
