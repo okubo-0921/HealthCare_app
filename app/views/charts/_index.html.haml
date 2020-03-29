@@ -6,6 +6,9 @@
   %a Name：
   =current_user.name
   %br
+  %a age：
+  = current_user.age
+  %br
   %br
   =column_chart Chart.where(name: current_user.name).pluck(:date, :weight), discrete: true, curve: false, min: 40, max: 100, xtitle: "date", ytitle: "weight"
   %br
@@ -17,7 +20,7 @@
         %th 　Weight(kg)
         %th 　Length(cm)
         %th 　BMI
-        -# %th 　Metabolism(kcal)
+        %th 　Metabolism(kcal)
 
 
     %tbody
@@ -28,7 +31,7 @@
             %td= chart.weight
             %td= chart.length
             %td= chart.BMI
-            -# %td= chart.metabolism
+            %td= chart.metabolism
             %td= link_to '　　詳細', chart
             %td= link_to '　編集', edit_chart_path(chart)
             %td= link_to '　削除', chart, method: :delete, data: { confirm: 'Are you sure?' }

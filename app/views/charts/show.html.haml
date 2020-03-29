@@ -4,6 +4,9 @@
   %b Name:
   = @chart.name
 %p
+  %b Age:
+  = current_user.age
+%p
   %b Weight:
   = @chart.weight
 %p
@@ -12,9 +15,9 @@
 %p
   %b BMI:
   = @chart.BMI
--# %p
--#   %b Metabolism:
--#   = @chart.metabolism
+%p
+  %b Metabolism:
+  = @chart.metabolism
 %p
   %b data:
   = @chart.date

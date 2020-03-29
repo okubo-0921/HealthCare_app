@@ -3,10 +3,9 @@ class CaloriesController < ApplicationController
   def index
     @chart = Chart.new
     @charts = Chart.all
+    # @from_Chart = Chart.pluck(:weight, :length, :date)
     @calorie = Calorie.new
     @calories = Calorie.all
-    # @obj = Obj.new
-    # @objs = Obj.all
     @foods = Obj.pluck(:obj, :calorie)
   end
 

@@ -106,12 +106,11 @@ a {
     width: 95%;
 
     input {
-      // float: right;
       font-size: 12px;
     }
     .db {
-      // color: whitesmoke;
-      display: hidden;
+      //値を画面に表示されないようにbackgroundと同じcolor
+      color: whitesmoke;
     }
   }
 }
