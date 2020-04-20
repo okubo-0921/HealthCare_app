@@ -4,6 +4,7 @@ class CalendarsController < ApplicationController
   # GET /calendars
   # GET /calendars.json
   def index
+    @chart = Chart.new
     @calendars = Calendar.all
   end
 

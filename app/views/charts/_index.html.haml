@@ -1,29 +1,41 @@
-%h2 Chart
-%h3=current_user.name
+.main_view
+  %br
+  =button_to "サイドバー表示", root_path, class: "btn", data: {action: "toggle", side: "left"}
 
-=column_chart Chart.where(name: current_user.name).pluck(:date, :weight), discrete: true, curve: false, min: 40, max: 100, xtitle: "date", ytitle: "weight"
+  %h2 Chart
+  %a ユーザー名：
+  =current_user.name
+  %br
+  %a age：
+  = current_user.age
+  %br
+  %br
+  =column_chart Chart.where(name: current_user.name).pluck(:date, :weight), discrete: true, curve: false, min: 40, max: 100, xtitle: "date", ytitle: "weight"
+  %br
+  %table
+    %thead
+      %tr
+        %th 　Date
+        %th 　Weight(kg)
+        %th 　Length(cm)
+        %th 　BMI
+        %th 　Metabolism(kcal)
 
-%table
-  %thead
-    %tr
-      %th 　Weight
-      %th 　Length
-      %th 　BMI
-      %th 　Proper
-      %th 　Date
 
-  %tbody
-    - @charts.each do |chart|
-      - if(current_user.name == chart.name)
-        %tr
-          %td= chart.weight
-          %td= chart.length
-          %td= chart.BMI
-          %td= chart.Proper
-          %td= chart.date.strftime("　%y/%m/%d")
-          %td= link_to '　　詳細', chart
-          %td= link_to '　編集', edit_chart_path(chart)
-          %td= link_to '　削除', chart, method: :delete, data: { confirm: 'Are you sure?' }
-%br
+    %tbody
+      - @charts.each do |chart|
+        - if(current_user.name == chart.name)
+          %tr
+            %td= chart.date.strftime("　%y/%m/%d")
+            %td= chart.weight
+            %td= chart.length
+            %td= chart.BMI
+            %td= chart.metabolism
+            %td= link_to '　　詳細', chart
+            %td= link_to '　編集', edit_chart_path(chart)
+            %td= link_to '　削除', chart, method: :delete, data: { confirm: 'Are you sure?' }
+  %br
 
--# = link_to 'テーブル追加', new_chart_path
+  = link_to 'テーブル追加', new_chart_path
+  %br
+  %br

@@ -1,21 +1,23 @@
-%p#notice= notice
+.view
+  -# %p#notice= notice
+  %h1 予定詳細
 
-%p
-  %b Name:
-  = @calendar.name
-%p
-  %b Title:
-  = @calendar.title
-%p
-  %b Body:
-  = @calendar.body
-%p
-  %b Start date:
-  = @calendar.start_date
-%p
-  %b End date:
-  = @calendar.end_date
+  %p
+    %b 名前:
+    = @calendar.name
+  %p
+    %b 予定:
+    = @calendar.title
+  %p
+    %b 内容:
+    = @calendar.body
+  %p
+    %b 開始日:
+    = @calendar.start_date
+  %p
+    %b 終了日:
+    = @calendar.end_date
 
-= link_to '編集', edit_calendar_path(@calendar)
-\|
-= link_to '戻る', root_path
+  = link_to '編集', edit_calendar_path(@calendar)
+  \|
+  = link_to '戻る', calendars_path

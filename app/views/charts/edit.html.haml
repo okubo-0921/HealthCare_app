@@ -1,7 +1,8 @@
-%h3 編集
+.view
+  %h1 データ編集
 
-= render 'form'
+  = render 'form'
 
-= link_to '詳細', @chart
-\|
-= link_to '戻る', root_path
+  = link_to '詳細', @chart
+  \|
+  = link_to '戻る', charts_path

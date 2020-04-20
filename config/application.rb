@@ -20,6 +20,9 @@ module HealthCareApp
     # デフォルトのlocaleを日本語(:ja)にする
     config.i18n.default_locale = :ja
 
+    # Beginning Of Week
+    config.beginning_of_week = :sunday
+
     #　#　以下の記述を追記する(設定必須)
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
   end

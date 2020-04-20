@@ -1,24 +1,29 @@
-%p#notice= notice
+.view
+  -# %p#notice= notice
+  %h1 データ詳細
 
-%p
-  %b Name:
-  = @chart.name
-%p
-  %b Weight:
-  = @chart.weight
-%p
-  %b Length:
-  = @chart.length
-%p
-  %b BMI:
-  = @chart.BMI
-%p
-  %b Proper:
-  = @chart.Proper
-%p
-  %b data:
-  = @chart.date
+  %p
+    %b Name:
+    = @chart.name
+  %p
+    %b Age:
+    = current_user.age
+  %p
+    %b Weight:
+    = @chart.weight
+  %p
+    %b Length:
+    = @chart.length
+  %p
+    %b BMI:
+    = @chart.BMI
+  %p
+    %b Metabolism:
+    = @chart.metabolism
+  %p
+    %b date:
+    = @chart.date
 
-= link_to '編集', edit_chart_path(@chart)
-\|
-= link_to '戻る', root_path
+  = link_to '編集', edit_chart_path(@chart)
+  \|
+  = link_to '戻る', charts_path

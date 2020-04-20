@@ -1,5 +1,23 @@
+.view {
+  margin-left: 30px;
+}
+
+#calendar_name,
+#calendar_title,
+#calendar_body {
+  height: 20px;
+  width: 200px;
+  font-size: 14px;
+}
 .simple-calendar {
+  .calendar-heading {
+    text-align: center;
+    .calendar-title {
+      font-size: 20px;
+    }
+  }
   table {
+    margin: 0 auto;
     -webkit-border-horizontal-spacing: 0px;
     -webkit-border-vertical-spacing: 0px;
     background-color: rgba(0, 0, 0, 0);
@@ -7,7 +25,15 @@
     border-collapse: collapse;
     box-sizing: border-box;
     max-width: 90%;
-    width: 90%;
+    width: 80%;
+  }
+
+  thead {
+    background-color: skyblue;
+    th {
+      text-align: center;
+      font-size: larger;
+    }
   }
 
   tr {
@@ -46,10 +72,11 @@
   }
 
   .day {
-    height: 50px;
+    height: 100px;
   }
 
   .wday-0 {
+    background-color: rgb(255, 132, 110);
   }
   .wday-1 {
   }
@@ -62,6 +89,7 @@
   .wday-5 {
   }
   .wday-6 {
+    background-color: rgb(195, 159, 253);
   }
 
   .today {
@@ -70,6 +98,7 @@
 
   .past {
   }
+
   .future {
   }
 
@@ -88,5 +117,10 @@
   }
 
   .has-events {
+  }
+
+  .link_to {
+    padding: 5px;
+    background-color: pink;
   }
 }

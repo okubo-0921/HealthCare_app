@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :charts
+  has_many :calendars
+  has_many :calories
   validates :name, presence: true, uniqueness: true
-  # validates :members_number, presence: true, uniqueness: true
 end

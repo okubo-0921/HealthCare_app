@@ -1,31 +1,21 @@
 .side_bar.sidebar.left
   .app-name
-    %a AppTitle
+    %a Simple健康管理App 3C
     = link_to destroy_user_session_path, method: :delete, class: "icon--door" do
       = icon('fas', 'door-open')
       %spcn<>
-    -# = link_to "#", class: "icon--cog" do
-    -#   = icon('fas', 'cog')
-    -#   %spcn<>
+    =button_to "サイドバー非表示", root_path, class: "btn", data: {action: "toggle", side: "left"}
+
   .app-area
-    = link_to "チャート", root_path, class: "app1"
-    = link_to "カレンダー", root_path, class: "app2"
-    -# = link_to "d", "#", class: "app3"
+    = link_to "≫ Chart", charts_path, class: "app1"
+    = link_to "≫ Calendar", calendars_path, class: "app2"
+    = link_to "≫ Calorie", calories_path, class: "app3"
 
   .input-area
-    %a 入力画面
-    = form_for @chart do |f|
-      .field
-        = f.label :name
-        = f.text_field :name
-      .field
-        = f.label :weight
-        = f.number_field :weight
-      .field
-        = f.label :length
-        = f.number_field :length
-      .field
-        = f.label :date
-        = f.date_select :date
-      .actions
-        = f.submit '保存'
+    %span 　入力画面
+    - if(request.fullpath == "/charts")
+      = render "main/input1"
+    - if(request.fullpath == "/calendars")
+      = render "main/input2"
+    - if(request.fullpath == "/calories")
+      = render "main/input3"

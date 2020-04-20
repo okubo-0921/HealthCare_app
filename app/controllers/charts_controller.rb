@@ -4,7 +4,8 @@ class ChartsController < ApplicationController
   # GET /charts
   # GET /charts.json
   def index
-    @charts = Chart.all
+    @chart = Chart.new
+    @charts = Chart.all.order("created_at DESC").page(params[:page]).per(5)
   end
 
   # GET /charts/1
@@ -24,10 +25,14 @@ class ChartsController < ApplicationController
   # POST /charts
   # POST /charts.json
   def create
-    @chart = Chart.new(chart_information)
+    @chart = Chart.new(chart_params)
+    @chart.BMI = @chart.set_information[:BMI]
+    @chart.Proper = @chart.set_information[:Proper]
+    @chart.metabolism = @chart.basal_metabolism(current_user.age)
+
     respond_to do |format|
       if @chart.save
-        format.html { redirect_to @chart, notice: '編集しました.' }
+        format.html { redirect_to @chart, notice: '編集しました' }
         format.json { render :show, status: :created, location: @chart }
       else
         format.html { render :new }
@@ -39,9 +44,12 @@ class ChartsController < ApplicationController
   # PATCH/PUT /charts/1
   # PATCH/PUT /charts/1.json
   def update
+    @chart.BMI = @chart.set_information[:BMI]
+    @chart.Proper = @chart.set_information[:Proper]
+    @chart.metabolism = @chart.basal_metabolism(current_user.age)
     respond_to do |format|
-      if @chart.update(chart_information)
-        format.html { redirect_to @chart, notice: '更新しました.' }
+      if @chart.update(chart_params)
+        format.html { redirect_to @chart, notice: '更新しました' }
         format.json { render :show, status: :ok, location: @chart }
       else
         format.html { render :edit }
@@ -55,7 +63,7 @@ class ChartsController < ApplicationController
   def destroy
     @chart.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: '削除しました.' }
+      format.html { redirect_to root_path, notice: '削除しました' }
       format.json { head :no_content }
     end
   end
@@ -68,10 +76,6 @@ class ChartsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def chart_params
-      params.require(:chart).permit(:name, :weight, :length, :BMI, :Proper, :date)
-    end
-
-    def chart_information
-      chart_params.merge(@chart.set_information)
+      params.require(:chart).permit(:name, :weight, :length, :BMI, :Proper, :date, :metabolism)
     end
 end

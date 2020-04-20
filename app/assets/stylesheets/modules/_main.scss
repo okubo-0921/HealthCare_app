@@ -8,7 +8,7 @@ a {
   .side_bar {
     z-index: 1;
     position: relative;
-    background-color: royalblue;
+    background-color: rgb(250, 219, 239);
     height: 100vh;
     width: 30%;
     .app-name {
@@ -65,6 +65,8 @@ a {
     }
 
     .input-area {
+      span {
+      }
       overflow: scroll;
       position: absolute;
       bottom: 0;
@@ -106,8 +108,11 @@ a {
     width: 95%;
 
     input {
-      float: right;
       font-size: 12px;
+    }
+    .db {
+      //値を画面に表示されないようにbackgroundと同じcolor
+      color: whitesmoke;
     }
   }
 }
