@@ -7,19 +7,24 @@
           %li= message
 
   .field
-    = f.label :name
+    %a 名前：
     = f.text_field :name
+  %br
   .field
-    = f.label :title
+    %a 予定：
     = f.text_field :title
+  %br
   .field
-    = f.label :body
+    %a 内容：
     = f.text_field :body
+  %br
   .field
-    = f.label :start_date
+    %a 開始日：
     = f.date_select :start_date
+  %br
   .field
-    = f.label :end_date
+    %a 終了日：
     = f.date_select :end_date
+  %br
   .actions
     = f.submit '保存'

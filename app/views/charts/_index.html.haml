@@ -3,7 +3,7 @@
   =button_to "サイドバー表示", root_path, class: "btn", data: {action: "toggle", side: "left"}
 
   %h2 Chart
-  %a Name：
+  %a ユーザー名：
   =current_user.name
   %br
   %a age：
@@ -12,7 +12,6 @@
   %br
   =column_chart Chart.where(name: current_user.name).pluck(:date, :weight), discrete: true, curve: false, min: 40, max: 100, xtitle: "date", ytitle: "weight"
   %br
-
   %table
     %thead
       %tr

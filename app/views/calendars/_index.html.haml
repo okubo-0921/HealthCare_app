@@ -3,11 +3,9 @@
   =button_to "サイドバー表示", root_path, class: "btn", data: {action: "toggle", side: "left"}
 
   %h2 Calendar
-  %a Name：
+  %a ユーザー名：
   =current_user.name
   %br
-  %br
-  = link_to '新しい予定を追記', new_calendar_path
   %br
 
   %table
@@ -32,5 +30,9 @@
   %br
   = month_calendar calendars: @calendars do |date, calendars|
     = date.strftime("%d")
+    %br
+    - @calendars.each do |calendar|
+      - if (current_user.name == calendar.name)&&((date >= calendar.start_date)&&(date <= calendar.end_date))
+        = link_to calendar.title, edit_calendar_path(calendar), class: "link_to"
   %br
   %br

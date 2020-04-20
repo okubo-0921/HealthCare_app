@@ -12,19 +12,10 @@
     = link_to "≫ Calorie", calories_path, class: "app3"
 
   .input-area
-    %a 入力画面
-    = form_for @chart do |f|
-      .field
-        = f.label :name
-        = f.text_field :name
-      .field
-        = f.label :weight
-        = f.number_field :weight
-      .field
-        = f.label :length
-        = f.number_field :length
-      .field
-        = f.label :date
-        = f.date_select :date
-      .actions
-        = f.submit '保存'
+    %span 　入力画面
+    - if(request.fullpath == "/charts")
+      = render "main/input1"
+    - if(request.fullpath == "/calendars")
+      = render "main/input2"
+    - if(request.fullpath == "/calories")
+      = render "main/input3"

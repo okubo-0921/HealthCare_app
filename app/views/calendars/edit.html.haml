@@ -1,7 +1,8 @@
-%h1 予定変更
+.view
+  %h1 予定編集
 
-= render 'form'
-
-= link_to '詳細', @calendar
-\|
-= link_to '戻る', calendars_path
+  = render 'form'
+  %br
+  = link_to '詳細', @calendar
+  \|
+  = link_to '戻る', calendars_path
