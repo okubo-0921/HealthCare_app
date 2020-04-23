@@ -3,24 +3,34 @@ function func1() {
   let outArray = create_array();
   let food = document.getElementById("food").value;
   let gram = document.getElementById("gram").value;
-  let kcal = document.getElementById("output2").textContent;
+  let total = document.getElementById("output2").textContent;
 
   //入力データ(food)とデータベースから作成した配列の比較
   for (cnt = 0; cnt < outArray.length; cnt++) {
     console.log(outArray[cnt].toString());
     if (outArray[cnt] == food) {
       //一致した次の要素が演算対象の数値
-      kcal = Number(kcal) + Number(outArray[cnt + 1]) * (gram / 100);
+      kcal = Number(outArray[cnt + 1]) * (gram / 100);
+      total = Number(total) + kcal;
     }
   }
 
   //入力データ(food,gram)をtextareaへ表示
   let input_params = document.getElementById("output1").value;
-  input_params = input_params + food + " , " + gram + " g" + "\n";
+  input_params =
+    input_params +
+    food +
+    " , " +
+    gram +
+    " g" +
+    "  =>  " +
+    kcal +
+    " kcal" +
+    "\n";
   document.getElementById("output1").innerHTML = input_params;
 
   //演算したカロリーを表示
-  document.getElementById("output2").innerHTML = kcal;
+  document.getElementById("output2").innerHTML = total;
 
   //入力データのテキストボックスをクリア
   document.getElementById("food").value = "";

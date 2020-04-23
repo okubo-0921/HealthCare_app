@@ -16,6 +16,7 @@ class CalendarsController < ApplicationController
   # GET /calendars/new
   def new
     @calendar = Calendar.new
+    @calendar.name = current_user.name
   end
 
   # GET /calendars/1/edit
