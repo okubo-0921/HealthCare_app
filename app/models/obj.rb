@@ -1,3 +1,3 @@
 class Obj < ApplicationRecord
-  has_many :calories, through: :calorie_objs
+  belongs_to :calories, optional: true
 end

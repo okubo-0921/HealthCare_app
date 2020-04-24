@@ -1,0 +1,13 @@
+%br
+%br
+＜DBへデータを追加＞
+= form_for @obj do |f|
+  .field
+    %a 食品名：
+    = f.text_field :obj
+  .field
+    %a kcal：
+    = f.number_field :calorie
+    %a（100g当り)
+  .actions
+    = f.submit '追加'

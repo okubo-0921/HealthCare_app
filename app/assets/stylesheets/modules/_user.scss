@@ -1,15 +1,15 @@
 .account-page {
   .account-page__inner {
-    width: 80vw;
+    width: 55vw;
     margin: 40px auto;
-    padding: 40px;
+    padding: 60px;
     background: radial-gradient(#fff, #ffd7dd);
     border: 1px solid #ddd;
     border-radius: 5px;
 
     .account-page__inner--left,
     .account-page__inner--right {
-      width: 75vw;
+      width: 53vw;
     }
     &:after {
       clear: both;

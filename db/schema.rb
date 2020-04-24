@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_27_063356) do
+ActiveRecord::Schema.define(version: 2020_03_27_025238) do
 
   create_table "calendars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -20,15 +20,6 @@ ActiveRecord::Schema.define(version: 2020_03_27_063356) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "calorie_objs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "calorie_id"
-    t.bigint "obj_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["calorie_id"], name: "index_calorie_objs_on_calorie_id"
-    t.index ["obj_id"], name: "index_calorie_objs_on_obj_id"
   end
 
   create_table "calories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -53,10 +44,11 @@ ActiveRecord::Schema.define(version: 2020_03_27_063356) do
 
   create_table "objs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "obj_id"
-    t.string "obj"
-    t.integer "calorie"
+    t.string "obj", null: false
+    t.integer "calorie", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["obj"], name: "index_objs_on_obj", unique: true
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -74,6 +66,4 @@ ActiveRecord::Schema.define(version: 2020_03_27_063356) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "calorie_objs", "calories", column: "calorie_id"
-  add_foreign_key "calorie_objs", "objs"
 end

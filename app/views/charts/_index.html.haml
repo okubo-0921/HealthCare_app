@@ -10,7 +10,7 @@
   = current_user.age
   %br
   %br
-  =column_chart Chart.where(name: current_user.name).pluck(:date, :weight), discrete: true, curve: false, min: 40, max: 100, xtitle: "date", ytitle: "weight"
+  = column_chart Chart.where(name: current_user.name).pluck(:date, :weight), discrete: true, curve: false, min: 40, max: 100, xtitle: "date", ytitle: "weight"
   %br
   %table
     %thead
