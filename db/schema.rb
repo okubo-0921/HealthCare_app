@@ -44,10 +44,11 @@ ActiveRecord::Schema.define(version: 2020_03_27_025238) do
 
   create_table "objs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "obj_id"
-    t.string "obj"
-    t.integer "calorie"
+    t.string "obj", null: false
+    t.integer "calorie", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["obj"], name: "index_objs_on_obj", unique: true
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
