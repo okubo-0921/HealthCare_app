@@ -82,5 +82,5 @@ gem 'rails-i18n', '~> 5.1'
 gem 'kaminari'
 
 group :production do
-  gem 'unicorn'
+  gem 'unicorn', '5.4.1'
 end
