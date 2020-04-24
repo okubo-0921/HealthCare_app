@@ -1,44 +1,52 @@
 .main_view
-  %br
-  =button_to "サイドバー表示", root_path, class: "btn", data: {action: "toggle", side: "left"}
-  %h2 Calorie
-  %a ユーザー名：
-  = current_user.name
-  %br
-  -# %a age：
-  -# = current_user.age
-  -# %br
-  -# %a 基礎代謝：
-  -# = @chart[:metabolism]
-  -# %br
+  .left
+    %br
+    =button_to "サイドバー表示", root_path, class: "btn", data: {action: "toggle", side: "left"}
+    %h2 Calorie
+    %a ユーザー名：
+    = current_user.name
+    %br
+    -# %a age：
+    -# = current_user.age
+    -# %br
+    -# %a 基礎代謝：
+    -# = @chart[:metabolism]
+    -# %br
 
-  %br
-  %form#form1{:action => "#"}
-    %a 食べた物を入力:
     %br
-    %input#food{:type => "text", :name => "food", :value => ""}
+    %form#form1{action: "#"}
+      %a 食べた物を入力:
+      %br
+      %input#food{type: "text", name: "food", value: "", placeholder: "(例)ごはん"}
+      %br
+      %a 数量(g):
+      %br
+      %input#gram{type: "text", name: "gram", value: "", placeholder: "(例)200"}
+      %br
+      %input{onclick: "func1()", type: "button", value: "計算"}
     %br
-    %a 数量(g):
-    %br
-    %input#gram{:type => "text", :name => "gram", :value => ""}
-    %br
-    %input{:onclick => "func1()", :type => "button", :value => "計算"}
-  %br
-  %a 入力済みの食べ物:
-  %form#form2{:action => "#"}
-    %textarea#output1{:cols => "60", :name => "eat_all", :readonly => "readonly", :rows => "10", :style => "overflow:auto;"}
-    %br
-    %a 合計摂取カロリー：
-    %text#output2{:cols => "20", :name => "total", :readonly => "readonly", :rows => "1"}
-    %text#test{:cols => "20", :name => "test", :readonly => "readonly", :rows => "1"}
-    %a kcal
+    %a 入力済みの食べ物:
+    %form#form2{action: "#"}
+      %textarea#output1{cols: "60", name: "eat_all", readonly: "readonly", rows: "10", style: "overflow:auto;"}
+      %br
+      %a 合計摂取カロリー：
+      %text#output2{cols: "20", name: "total", readonly: "readonly", rows: "1"}
+      %text#test{cols: "20", name: "test", readonly: "readonly", rows: "1"}
+      %a kcal
+      %br
+      %br
+      %input{onclick: "func2()", type: "button", value: "リセット"}
     %br
     %br
-    %input{:onclick => "func2()", :type => "button", :value => "リセット"}
-  
-  %br
-  %br
+    %text#result{class: "db", readonly: "readonly"}
+      =@foods_list
 
-  %text#result{:class => "db", :readonly => "readonly"}
-    =@foods
-  %br
+  .right
+    %br
+    %h3 DB登録データ一覧(100gあたり)
+    .info_area
+      - @foods.each do |f|
+        .info
+          = link_to "削除", calory_path(f.id), method: :delete
+          = "#{f.obj} ,"
+          = "#{f.calorie} kcal"

@@ -10,9 +10,9 @@ a {
     position: relative;
     background-color: rgb(250, 219, 239);
     height: 100vh;
-    width: 30%;
+    width: 20%;
     .app-name {
-      height: 50px;
+      height: 70px;
       width: 100%;
       background: radial-gradient(skyblue, #fff);
     }
@@ -22,7 +22,7 @@ a {
       font-size: 16px;
       width: 20px;
       height: 20px;
-      top: 30px;
+      top: 70px;
       right: 10px;
     }
     .fa-cog {
@@ -31,7 +31,7 @@ a {
       font-size: 16px;
       width: 20px;
       height: 20px;
-      top: 30px;
+      top: 70px;
       right: 40px;
     }
 
@@ -105,14 +105,46 @@ a {
     float: right;
     margin-left: 30px;
     height: 100vh;
-    width: 95%;
+    width: 98%;
 
+    .left {
+      float: left;
+      width: 40%;
+      height: 100vh;
+    }
+
+    .right {
+      float: right;
+      width: 60%;
+      height: 100vh;
+      background-color: whitesmoke;
+      .info_area {
+        float: left;
+        width: 50%;
+        background-color: white;
+        height: 60vh;
+        overflow: scroll;
+        border: solid 1px;
+        .info {
+          margin: 5px;
+        }
+        a {
+          background-color: hotpink;
+          color: black;
+          border: solid 1px;
+          font-size: 12px;
+          padding: 3px;
+          margin: 5px;
+        }
+      }
+    }
     input {
       font-size: 12px;
     }
     .db {
       //値を画面に表示されないようにbackgroundと同じcolor
       color: whitesmoke;
+      font-size: 1px;
     }
   }
 }

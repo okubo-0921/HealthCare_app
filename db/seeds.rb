@@ -8,10 +8,10 @@
 
 [
   [20200101, 'test', 70, 170],
-  [20200102, 'test', 78, 171],
-  [20200103, 'test', 72, 175],
-  [20200104, 'test', 70, 172],
-  [20200105, 'test', 80, 170],
+  [20200102, 'test', 75, 171],
+  [20200103, 'test', 80, 170],
+  [20200104, 'test', 85, 172],
+  [20200105, 'test', 90, 170],
   [20200101, 'AAA', 60, 160],
   [20200102, 'AAA', 65, 165],
   [20200103, 'AAA', 64, 162],
@@ -61,13 +61,13 @@ end
   )
 end
 
-[
-  ['test', 2000, 1],
-  ['AAA', 4000, 2],
-].each do |record|
-  Calorie.create!(
-    name: record[0],
-    calorie: record[1],
-    calorie_id: record[2],
-  )
-end
+# [
+#   ['test', 2000, 1],
+#   ['AAA', 4000, 2],
+# ].each do |record|
+#   Calorie.create!(
+#     name: record[0],
+#     calorie: record[1],
+#     calorie_id: record[2],
+#   )
+# end

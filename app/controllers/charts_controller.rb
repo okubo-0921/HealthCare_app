@@ -5,7 +5,7 @@ class ChartsController < ApplicationController
   # GET /charts.json
   def index
     @chart = Chart.new
-    @charts = Chart.all.order("created_at DESC").page(params[:page]).per(5)
+    @charts = Chart.all
   end
 
   # GET /charts/1
@@ -63,7 +63,7 @@ class ChartsController < ApplicationController
   def destroy
     @chart.destroy
     respond_to do |format|
-      format.html { redirect_to root_path, notice: '削除しました' }
+      format.html { redirect_to charts_path, notice: '削除しました' }
       format.json { head :no_content }
     end
   end
