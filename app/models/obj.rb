@@ -1,3 +1,3 @@
 class Obj < ApplicationRecord
-  belongs_to :calories, optional: true
+  belongs_to :calorie, optional: true
 end
